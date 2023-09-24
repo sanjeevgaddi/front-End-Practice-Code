@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jsAnimation</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+        .yellow{
+            width: 450px;
+            height: 450px;
+            background-color: yellow;
+            margin-top: 50px;
+            position: relative;
+        }
+        #red{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            margin-left: 0px;
+            margin-top: 0px;
+            position: absolute;
+        }
+    </style>
+  </head>
+
+  <body>
+    <button onclick="move()" onmouseenter="move()">Click Me</button>
+    <div class="yellow">
+        <div id="red"></div>
+    </div>
+  </body>
+  <script>
+    function move()
+    {
+        var redElem = document.getElementById('red');
+        var poe = 0;
+        var ani = setInterval(animate,5)
+
+        function animate()
+        {
+            if(poe==400)
+            {
+                clearInterval(ani);
+            }
+            else
+            {
+                poe++;
+                redElem.style.top = poe+"px";
+                redElem.style.left=poe+"px";
+            }
+           
+
+        }
+    }
+  </script>
+</html>

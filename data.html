@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>data</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <h2 id="res"></h2>
+    <button onclick="date()">DATE</button>
+    <button onclick="year()">YEAR</button>
+    <button onclick="month()">MONTH</button>
+    <button onclick="hour()">HOUR</button>
+    <button onclick="todate()">DATE</button>
+  </body> 
+  <script>
+    
+    function date()
+    {
+        var date= new Date();
+        document.getElementById('res').innerText = date;
+    }
+    function year()
+    {
+        var date= new Date();
+        document.getElementById('res').innerText = date.getFullYear();
+    }
+    function month()
+    {
+        var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var date= new Date();
+        document.getElementById('res').innerText = months[date.getMonth()];
+    }
+    function hour()
+    {
+        var date= new Date();
+        document.getElementById('res').innerText = date.getHours();
+    }
+    function todate()
+    {
+        var date= new Date();
+        document.getElementById('res').innerText = date.getDate();
+    }
+  </script>
+</html>

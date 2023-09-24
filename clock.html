@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>clock</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        h1{
+            font-size: 20;
+            font-style: normal;
+            text-align: center;
+        }
+    </style>
+  </head>
+
+  <body onload="showtime()">
+    <h1 ></h1>
+  </body>
+  <script>
+
+    function showtime()
+    {
+        var d=new Date();
+        var h=d.getHours();
+        var m=d.getMinutes();
+        var s=d.getSeconds();
+        var session="AM";
+        if(h>11)
+        {
+            session="PM";
+        }
+        
+        if(h>12)
+        {
+            h=h-12;
+            session="PM";
+        }
+        h= h<10 ? "0"+h : h;
+        m= m<10 ? "0"+m : m;
+        s= s<10 ? "0"+s : s;
+       
+        var time= h + " : " + m + " : " + s + " "+session ;
+        document.getElementsByTagName('h1')[0].innerText=time;
+        setInterval(showtime, 1000);
+
+    }
+  </script>
+</html>

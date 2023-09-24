@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>registrationForm</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .body{
+            background-color: rgba(0,0,0,0.5);
+        }
+        #form{
+            width: 350px;
+            height: 500px;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .div-1{
+            margin: auto;
+            text-align: center;
+            width: 200px;
+           
+        }
+        .div-2{
+            margin-left: 25px;
+            font-size: 20px;  
+        }
+        .user{
+          border-radius: 4px;
+          height: 25px;
+          width: 300px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          background-color: rgba(0,0,0,0.1);
+        }
+        .user-1{
+          border-radius: 4px;
+          height: 25px;
+          width: 300px;
+          margin-top: 10px;
+          background-color: rgba(0,0,0,0.1);
+        }
+        #submit{
+          background-color: blue;
+          color: white;
+          width: 250px;
+          margin-left: 50px;
+          height: 40px;
+          border-radius: 5px;
+        }
+    </style>
+  </head>
+
+  <body class="body">
+    <form id="form"><br>
+        <div class="div-1" >
+            <h2>Internship Registration Form</h2>
+        </div>
+        <div class="div-2">
+          Username<sup style="color: red;">*</sup><br>
+          <input type="text" class="user" required><br>
+          password<sup style="color: red;">*</sup><br>
+          <input type="password" class="user" required>
+          Confirm Password<sup style="color: red;">*</sup><br>
+          <input type="password" class="user-1" required onkeyup="check(this)">
+          <error id="alert" style="color: red;"></error>
+        </div><br><br>
+        <button id="submit" onsubmit="return validate()">SUBMIT</button>
+    </form>
+    </div>
+  </body>
+  <script>
+    var password=document.getElementsByClassName('user')[1];
+    flag = 1;
+    function check(elem)
+    {
+      if(elem.value.length > 0)
+      {
+        if(elem.value != password.value)
+        {
+          document.getElementById('alert').innerText = "Confirm Password Does not Match";
+          falg = 0;
+        }
+        else{
+          document.getElementById('alert').innerText = "";
+          flag=1;
+        }
+      }
+      else
+      {
+        document.getElementById('alert').innerText = "Please enter confirm password";
+        flag=0;
+      }
+    }
+    function validate()
+    {
+      if(flag == 1)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+  </script>
+</html>
